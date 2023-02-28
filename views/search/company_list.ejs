@@ -1,0 +1,130 @@
+<!-- [1]. 키워드 검색 기록 -->
+<!-- [2]. 다중 폼 submit 막기 -->
+
+<!-- Begins the HTML -->
+<!-- search-bar -->
+<div class="search-bar-responsive">
+    <div class="row justify-content-between mb-2">
+        <div class="col-6">
+            <button type="button" class="btn btn-light btn-lg" id="total" disabled="disabled">
+                <p>기업 검색
+                    <span class="badge bg-warning text-dark">
+                        <%_ if(typeof companyTotal !== "undefined"){ _%>
+                            <%= companyTotal %>
+                        <% } %>
+                    </span> 건
+                </p>
+            </button>
+        </div>
+
+        <div class="col-6 mt-2">
+            <form noValidate id="searchForm" name="searchForm" method="post" action="/company-search">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="inputText" name="inputText" placeholder="검색어를 입력하세요">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-warning" id="btn_search" name="btn_search">Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- search-detail-nav -->
+<div class="search-detail-nav-responsive">
+
+    <nav class="navbar navbar-expand-lg navbar-light border-top border-secondary mb-3">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-bs-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  설립년도▾
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <form noValidate id="searchDateForm" name="searchDateForm" method="post" action="/company-search">
+                        <li>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>전체</option>
+                                <option value="week">최근 1주</option>
+                                <option value="month">최근 1개월</option>
+                                <option value="year">최근 1년</option>
+                                <option value="calendar">직접 입력</option>
+                            </select>
+                        </li>
+                    </form>
+                </ul>
+            </li>
+
+          </ul>
+        </div>
+      </nav>
+
+      <!-- search-tag -->
+      <div class="search-tag mb-5">
+
+        <button type="button" class="btn btn-light" id="search_tag_reporter" disabled="disabled">
+            <p>검색어
+                <span class="badge bg-light text-dark">
+                    req.body.inputText
+                </span>
+            </p>
+        </button>
+
+        <button type="button" class="btn btn-light" id="search_tag_category" disabled="disabled">
+            <p>설립년도
+                <span class="badge bg-light text-dark">
+                   언제부터 언제까지
+                </span>
+            </p>
+        </button>
+
+      </div>
+
+</div>
+
+<!-- search-list -->
+<div class="search-list-responsive">
+    <!-- (3) company -->
+    <%_ if(typeof searchCompany != "undefined"){ _%>
+        <% for(var i=0; i<searchCompany.length; i++) { %>
+            <div class="col-md-12 mb-5">
+                <a href="#">
+                <div class="card flex-row">
+                    <img class="card-img-left flex-auto d-none d-md-block" data-src="holder.js/300x150?theme=thumb" alt="Card image cap"/>
+                    <!-- figure class="art_photo"-->
+                    <div class="card-body">
+                        <div class="card-body d-flex flex-column align-items-start">
+                        <h3 class="mb-2">
+                            <% if(searchCompany[i].smes_highlight.hasOwnProperty('cmp_nm')){ %>
+                                <p class="card-text font-weight-bold"><%- searchCompany[i].smes_highlight.cmp_nm %></p>
+                            <% }else { %>
+                                <p class="card-text font-weight-bold"><%= searchCompany[i].cmp_nm %></p>
+                            <% } %>
+
+                            <% if(searchCompany[i].smes_highlight.hasOwnProperty('cmp_eng_n')){ %>
+                                <p class="card-text font-weight-bold"><%- searchCompany[i].smes_highlight.cmp_eng_n%></p>
+                            <% }else { %>
+                                <p class="card-text font-weight-bold"><%= searchCompany[i].cmp_eng_n %></p>
+                            <% } %>
+                        </h3>
+
+                        <ul class="list-group list-group-horizontal mt-3">
+                            <li class="list-group-item"><%- searchCompany[i].prmy_prdct_nm %></li>
+                            <li class="list-group-item"><%- searchCompany[i].telno %></li>
+                            <li class="list-group-item"><%- searchCompany[i].faxno %></li>
+                        </ul>
+
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </div>
+        <% } %>
+    <% } %>
+</div>
+
+<!-- pagination -->
+<div class="pagination-responsive justify-content-center mt-3">
+
+</div>

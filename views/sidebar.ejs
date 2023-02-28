@@ -1,0 +1,35 @@
+<nav id="sidebar">
+    <div class="list-group mt-2">
+        <ul class="menu-list">
+
+            <% if (typeof url != undefined) { %>
+                <a class="rounded-0 list-group-item list-group-item-action list-group-item-light
+                <% if (url == 'total') { %> active <% } %>" href="/total-search">통합 검색</a>
+            <% } else { %>
+                <a class="rounded-0 list-group-item list-group-item-action list-group-item-light" href="/total-search">통합 검색</a>
+            <% } %>
+
+            <% if (typeof url != undefined) { %>
+                <a class="rounded-0 list-group-item list-group-item-action list-group-item-light
+                <% if (url == 'sedaily') { %> active <% } %>" href="/sedaily-search">뉴스 검색</a>
+            <% } else { %>
+                <a class="rounded-0 list-group-item list-group-item-action list-group-item-light" href="/sedaily-search">뉴스 검색</a>
+            <% } %>
+
+            <% if (typeof url != undefined) { %>
+                <a class="rounded-0 list-group-item list-group-item-action list-group-item-light
+                <% if (url == 'thesis') { %> active <% } %>" href="/thesis-search">논문 검색</a>
+            <% } else { %>
+                <a class="rounded-0 list-group-item list-group-item-action list-group-item-light" href="/thesis-search">논문 검색</a>
+            <% } %>
+
+            <% if (typeof url != undefined) { %>
+                <a class="rounded-0 list-group-item list-group-item-action list-group-item-light
+                <% if (url == 'company') { %> active <% } %>" href="/company-search">기업 검색</a>
+            <% } else { %>
+                <a class="rounded-0 list-group-item list-group-item-action list-group-item-light" href="/company-search">기업 검색</a>
+            <% } %>
+
+        </ul>
+    </div>
+</nav>

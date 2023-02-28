@@ -1,0 +1,32 @@
+{
+    "run_mode": "local",
+    "local": {
+        "API_SERVICE_PORT": "9990",
+        "ELASTICSEARCH_SE_HOST": ["localhost:9200"],
+        "ELASTICSEARCH_TIMEOUT": 100000
+    },
+    "sedaily": {
+        "index": "sedaily_v2",
+        "API_SERVICE_PORT": "9990",
+        "ELASTICSEARCH_SE_HOST": ["localhost:9200"],
+        "ELASTICSEARCH_TIMEOUT": 100000
+    },
+    "sedaily_htmlstrip": {
+        "index": "sedaily_htmlstrip_v3",
+        "API_SERVICE_PORT": "9990",
+        "ELASTICSEARCH_SE_HOST": ["localhost:9200"],
+        "ELASTICSEARCH_TIMEOUT": 100000
+    },
+    "thesis": {
+        "index": "thesis_v3",
+        "API_SERVICE_PORT": "9990",
+        "ELASTICSEARCH_SE_HOST": ["localhost:9200"],
+        "ELASTICSEARCH_TIMEOUT": 100000
+    },
+    "company": {
+        "index": "company_v3",
+        "API_SERVICE_PORT": "9990",
+        "ELASTICSEARCH_SE_HOST": ["localhost:9200"],
+        "ELASTICSEARCH_TIMEOUT": 100000
+    }
+}
