@@ -9,7 +9,7 @@ gi
 2. multi Search
 
 ## More Study
-1. ejs to React
+1. ejs to React & TypeScript
 2. detail Search
 3. date Filtering
 4. Change the structure of the project to standard-API.
